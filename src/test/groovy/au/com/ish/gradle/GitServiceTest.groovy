@@ -17,21 +17,13 @@
 package au.com.ish.gradle
 
 import org.junit.Test
-import static org.junit.Assert.*
 
-import org.gradle.testfixtures.ProjectBuilder
-
-import au.com.ish.gradle.*
-
-import groovy.mock.interceptor.*
-import org.tmatesoft.svn.core.SVNException
-
-class SvnServiceTest {    
+class GitServiceTest {    
 
     // tests parsing the url with 'tags'
     @Test
     public void testOnTag() {
-        TestSvnService service = new TestSvnService()
+        TestGitService service = new TestGitService()
         service.setSCMRemoteURL("http://svn.apache.org/repos/asf/subversion/tags/1.8.0")
         assert service.onTag() == true
         assert service.getBranchName() == "1.8.0"
